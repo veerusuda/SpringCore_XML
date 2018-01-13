@@ -1,0 +1,39 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+    
+    <bean id="mobile" class="com.spring.learning.springxml.Mobile">
+    	<!-- Setter Injection -->
+    	<property name="brand" value="Moto G" />
+    	
+    	<!-- Interface Injection -->
+    	<property name="processor" ref="hiSilicon"></property>
+   </bean>
+   
+    <bean id="mobile1" class="com.spring.learning.springxml.Mobile">
+    	<!-- Constructor Injection -->
+    	<constructor-arg value="Nokia"/>
+    	<constructor-arg type= "com.spring.learning.springxml.Processor" ref="snapdragon"/>
+   </bean>
+   
+   <bean id="mobile2" class="com.spring.learning.springxml.Mobile">
+    	<!-- Constructor Injection -->
+    	<constructor-arg value="Nokia"/>
+    	
+    	<!-- Interface Injection -->
+    	<property name="processor" ref="snapdragon"></property>
+   </bean>
+   
+   <bean id="mobile3" class="com.spring.learning.springxml.Mobile">
+    	<!-- Setter Injection -->
+    	<property name="brand" value="Moto G" />
+    	
+    	<!-- Constructor Injection -->
+    	<constructor-arg type= "com.spring.learning.springxml.Processor" ref="hiSilicon"/>
+   </bean>
+   
+   <bean id="hiSilicon" class="com.spring.learning.springxml.HiSilicon"></bean>
+   <bean id="snapdragon" class="com.spring.learning.springxml.Snapdragon"></bean>
+   
+</beans> 
